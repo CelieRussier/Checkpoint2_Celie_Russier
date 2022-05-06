@@ -5,6 +5,7 @@ namespace App\Model;
 class CupCakeManager extends AbstractManager
 {
     public const TABLE = 'cupcake';
+    public const TABLE_ACCESSORY = 'Accessory';
 
     public function insert(array $cupcake): void
     {
@@ -20,9 +21,10 @@ class CupCakeManager extends AbstractManager
         $statement->execute();
     }
 
-    public function listAllCupcakes(string $orderBy = '', string $direction = 'ASC'): array
+    public function listAllCupcakes(string $orderBy = 'Cupcake.Id', string $direction = 'DESC'): array
     {
-        $query = 'SELECT * FROM ' . static::TABLE;
+        $query = 'SELECT * FROM ' . static::TABLE .
+        ' INNER JOIN ' . static::TABLE_ACCESSORY . ' ON cupcake.accessory_id = Accessory.Id';
         if ($orderBy) {
             $query .= ' ORDER BY ' . $orderBy . ' ' . $direction;
         }
