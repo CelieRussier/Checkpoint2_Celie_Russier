@@ -15,4 +15,5 @@ return [
     'cupcake/list'    => ['CupcakeController', 'list'],
     'logistics'    => ['LogisticController', 'index'],
     //TODO add a cupcake/show route with a query param id
+    'cupcake/show' => ['CupcakeController', 'show', ['id']],
 ];

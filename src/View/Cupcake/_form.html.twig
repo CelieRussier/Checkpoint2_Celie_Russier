@@ -1,7 +1,7 @@
 <form method="post">
     <div class="form-group">
-        <label for="name">Cupcake name</label>
-        <input type="text" name="name" id="name">
+        <label for="Name">Cupcake name</label>
+        <input type="text" name="Name" id="Name">
     </div>
     <div class="form-group">
         <label for="color1">Color first cream</label>
@@ -16,9 +16,12 @@
         <input type="color" name="color3" id="color3">
     </div>
     <div class="form-group">
-        <label for="accessory">Accessory</label>
-        <select name="accessory" id="accessory">
+        <label for="accessory_id">Accessory</label>
+        <select name="accessory_id" id="accessory_id" value="cupcake.accessory_id">
             {# TODO Add accessories options here #}
+            {% for accessory in accessories %}
+            <option value="{{ accessory.Id }}">{{ accessory.Name }}</option>
+            {% endfor %}
         </select>
 
     </div>
